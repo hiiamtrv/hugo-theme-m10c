@@ -15,6 +15,11 @@
 }
 
 .post-content {
+  /* Center the largest header (h1) */
+  h1 {
+    text-align: center;
+  }
+
   & > pre,
   .highlight {
     margin: 1em 0;
@@ -40,5 +45,46 @@
 
   img {
     max-width: 100%;
+  }
+
+  /* Table styling */
+  table {
+    width: 100%;
+    margin: 1em 0;
+    border-collapse: collapse;
+
+    th, td {
+      padding: 0.5em;
+      text-align: left;
+    }
+
+    th {
+      font-weight: bold;
+    }
+
+    /* Space-between column distribution */
+    &.space-between {
+      width: 100%;
+
+      tr {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      th, td {
+        flex: 1;
+      }
+    }
+
+    /* Responsive handling */
+    @media (max-width: 768px) {
+      &.space-between tr {
+        display: table-row;
+
+        th, td {
+          display: table-cell;
+        }
+      }
+    }
   }
 }
